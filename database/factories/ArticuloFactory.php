@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Articulo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ArticuloFactory extends Factory
 {
+    protected $model = Articulo::class;
+
     /**
      * Define the model's default state.
      *
@@ -17,7 +20,9 @@ class ArticuloFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nombre' => $this->faker->sentence(3),
+            'descripción' => $this->faker->paragraph(),
+            'imageUrl' => $this->faker->unique()->imageUrl(800, 600),
         ];
     }
 }

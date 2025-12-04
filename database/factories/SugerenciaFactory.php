@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Sugerencia;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Sugerencia>
+ * @extends Factory<Sugerencia>
  */
 class SugerenciaFactory extends Factory
 {
@@ -17,7 +19,9 @@ class SugerenciaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'titulo' => $this->faker->sentence(),
+            'texto' => $this->faker->paragraphs(3, true),
+            'user_id' => User::factory(),
         ];
     }
 }

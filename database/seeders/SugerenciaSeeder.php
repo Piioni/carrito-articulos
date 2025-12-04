@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Sugerencia;
 use Illuminate\Database\Seeder;
 
 class SugerenciaSeeder extends Seeder
@@ -12,6 +12,6 @@ class SugerenciaSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Sugerencia::factory()->count(50)->create();
     }
 }
