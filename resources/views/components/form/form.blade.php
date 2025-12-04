@@ -1,10 +1,10 @@
-<form action=" {{ $action }}" method="POST" {{ $attributes->merge(['class' => 'space-y-6']) }}>
+<form action="{{ $action }}" method="POST" {{ $attributes->merge(['class' => 'space-y-6']) }}>
     @csrf
     @method($method ?? 'POST')
 
     {{ $slot }}
 
-    <x-ui.button type="submit" >
+    <x-ui.button type="submit">
         {{ $buttonText ?? 'Submit' }}
     </x-ui.button>
 </form>

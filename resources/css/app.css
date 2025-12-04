@@ -6,6 +6,44 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-myfamily: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-sans: var(--font-myfamily);
+
+    --color-vanilla: #f9f7f4;
+    --color-white-smoke: #ffffff;
+    --color-cream: #ede8df;
+    --color-thistle: #8b7355;
+    --color-fulvous: #c65d3b;
+    --color-accent: #d4a574;
+    --color-footer-bg: #e8dcc8;
+    --color-charcoal: #2d2d2d;
+}
+
+@layer base {
+    body {
+        @apply bg-vanilla font-sans text-charcoal;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-semibold text-thistle;
+    }
+}
+
+@layer components {
+    .card {
+        @apply rounded-lg border-2 border-accent bg-cream p-6 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl;
+    }
+
+    .btn-primary {
+        @apply cursor-pointer rounded bg-fulvous px-4 py-2 font-semibold text-white transition-colors duration-300 hover:bg-accent focus:ring-2 focus:ring-accent focus:outline-none;
+    }
+
+    .form-input {
+        @apply w-full rounded border-2 border-accent bg-white-smoke px-4 py-2 transition-all focus:ring-2 focus:ring-accent focus:outline-none;
+    }
 }

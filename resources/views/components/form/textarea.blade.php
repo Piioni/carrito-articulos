@@ -1,16 +1,11 @@
-<div>
-    <label for="{{ $name }}" class="block text-sm font-medium text-gray-700 mb-1">
+<div class="mb-4">
+    <label for="{{ $name }}" class="text-charcoal mb-2 block text-sm font-semibold">
         {{ $label }}
     </label>
-    <textarea
-            name="{{ $name }}"
-            id="{{ $name }}"
-            {{ $attributes->merge(['class' => 'w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500', 'rows' => 4]) }}
-    >
-        {{ old($name, $value ?? '') }}
-    </textarea>
+    <textarea name="{{ $name }}" id="{{ $name }}"
+        {{ $attributes->merge(['class' => 'w-full px-4 py-2 border-2 border-accent bg-white-smoke rounded focus:outline-none focus:ring-2 focus:ring-accent transition-all', 'rows' => 4]) }}>{{ old($name, $value ?? '') }}</textarea>
 
     @error($name)
-    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+        <p class="text-fulvous mt-1 text-sm">{{ $message }}</p>
     @enderror
 </div>
