@@ -1,10 +1,18 @@
-<form action="{{ $action }}" method="POST" {{ $attributes->merge(['class' => 'space-y-6']) }}>
+@props(['action', 'method' => 'POST', 'buttonText' => 'Guardar'])
+
+<form action="{{ $action }}" method="POST" {{ $attributes }}>
     @csrf
-    @method($method ?? 'POST')
+    @if($method !== 'POST')
+        @method($method)
+    @endif
 
-    {{ $slot }}
+    <div class="space-y-4">
+        {{ $slot }}
+    </div>
 
-    <x-ui.button type="submit">
-        {{ $buttonText ?? 'Submit' }}
-    </x-ui.button>
+    <div class="mt-6">
+        <x-ui.button type="submit" class="w-full">
+            {{ $buttonText }}
+        </x-ui.button>
+    </div>
 </form>

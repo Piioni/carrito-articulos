@@ -1,10 +1,35 @@
-<footer class="bg-footer-bg mt-auto py-8">
-    <div class="container mx-auto px-4">
-        <p class="text-center mb-4 text-charcoal">&copy; {{ date('Y') }} Mi Aplicación. Todos los derechos reservados.</p>
-        <ul class="flex justify-center space-x-6">
-            <li><a href="#" class="text-thistle hover:opacity-70 transition-opacity">Política de privacidad</a></li>
-            <li><a href="#" class="text-thistle hover:opacity-70 transition-opacity">Términos de servicio</a></li>
-            <li><a href="#" class="text-thistle hover:opacity-70 transition-opacity">Contacto</a></li>
-        </ul>
+<footer class="bg-gradient-to-b from-footer-bg to-cream mt-auto border-t border-accent/20">
+    <div class="container mx-auto px-4 py-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            {{-- Brand --}}
+            <div class="flex items-center gap-2">
+                <span class="text-xl">🛒</span>
+                <span class="font-semibold text-thistle text-sm">Carrito Artículos</span>
+            </div>
+
+            {{-- Links --}}
+            <ul class="flex flex-wrap justify-center gap-5 text-sm">
+                <li>
+                    <a href="#" class="text-thistle/70 hover:text-fulvous transition-colors">
+                        Privacidad
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="text-thistle/70 hover:text-fulvous transition-colors">
+                        Términos
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="text-thistle/70 hover:text-fulvous transition-colors">
+                        Contacto
+                    </a>
+                </li>
+            </ul>
+
+            {{-- Copyright --}}
+            <p class="text-xs text-thistle/60">
+                &copy; {{ date('Y') }} Carrito Artículos
+            </p>
+        </div>
     </div>
 </footer>
