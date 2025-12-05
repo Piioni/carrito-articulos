@@ -1,4 +1,4 @@
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -11,7 +11,7 @@ export default defineConfig({
         tailwindcss(),
     ],
     server: {
-        host: "0.0.0.0",
+        host: '0.0.0.0',
         port: 5173,
         strictPort: true,
         origin: `${process.env.DDEV_PRIMARY_URL_WITHOUT_PORT}:5173`,

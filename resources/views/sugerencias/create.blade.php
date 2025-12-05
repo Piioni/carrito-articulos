@@ -3,15 +3,17 @@
 @section('title', 'Nueva Sugerencia')
 
 @section('content')
-    <div class="max-w-2xl mx-auto">
+    <div class="mx-auto max-w-2xl">
         <x-ui.back-link :href="route('sugerencias.index')" text="Volver a sugerencias" />
 
-        <div class="text-center mb-6">
-            <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-fulvous to-accent text-white text-2xl mb-3 shadow-lg">
+        <div class="mb-6 text-center">
+            <div
+                class="from-fulvous to-accent mb-3 inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br text-2xl text-white shadow-lg"
+            >
                 💡
             </div>
-            <h1 class="text-2xl font-bold text-thistle">Nueva Sugerencia</h1>
-            <p class="text-thistle/60 text-sm mt-1">¿Qué producto te gustaría que vendiéramos?</p>
+            <h1 class="text-thistle text-2xl font-bold">Nueva Sugerencia</h1>
+            <p class="text-thistle/60 mt-1 text-sm">¿Qué producto te gustaría que vendiéramos?</p>
         </div>
 
         <x-ui.card variant="elevated">

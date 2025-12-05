@@ -8,36 +8,36 @@
         <p class="page-subtitle">Miembros de nuestra comunidad</p>
     </div>
 
-    @if(session('success'))
+    @if (session('success'))
         <x-ui.alert type="success">
             {{ session('success') }}
         </x-ui.alert>
     @endif
 
-    @if($users->isEmpty())
+    @if ($users->isEmpty())
         <x-ui.empty-state
             icon="👥"
             title="No hay usuarios registrados"
             description="Sé el primero en unirte a la comunidad."
         >
             <x-slot:action>
-                <a href="{{ route('register') }}" class="btn-primary">
-                    Registrarse
-                </a>
-            </x-slot:action>
+                <a href="{{ route('register') }}" class="btn-primary">Registrarse</a>
+            </x-slot>
         </x-ui.empty-state>
     @else
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            @foreach($users as $user)
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            @foreach ($users as $user)
                 <a href="{{ route('users.show', $user) }}" class="group">
                     <div class="card-hover">
                         <div class="flex items-center gap-3">
                             <x-ui.avatar :name="$user->name" />
                             <div class="min-w-0">
-                                <h3 class="font-semibold text-thistle truncate group-hover:text-fulvous transition-colors">
+                                <h3
+                                    class="text-thistle group-hover:text-fulvous truncate font-semibold transition-colors"
+                                >
                                     {{ $user->name }}
                                 </h3>
-                                <p class="text-xs text-charcoal/60 truncate">{{ $user->email }}</p>
+                                <p class="text-charcoal/60 truncate text-xs">{{ $user->email }}</p>
                             </div>
                         </div>
                     </div>
