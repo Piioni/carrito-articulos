@@ -1,7 +1,7 @@
 @props(['type' => 'success', 'dismissible' => false])
 
 @php
-    $config = match($type) {
+    $config = match ($type) {
         'success' => [
             'bg' => 'bg-success/10',
             'border' => 'border-success',
@@ -35,11 +35,13 @@
     };
 @endphp
 
-<div {{ $attributes->merge(['class' => "flex items-start gap-3 p-4 mb-6 rounded-xl border-l-4 {$config['bg']} {$config['border']}"]) }}>
-    <svg class="w-5 h-5 {{ $config['text'] }} shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+<div
+    {{ $attributes->merge(['class' => "flex items-start gap-3 p-4 mb-6 rounded-xl border-l-4 {$config['bg']} {$config['border']}"]) }}
+>
+    <svg class="{{ $config['text'] }} mt-0.5 h-5 w-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
         {!! $config['icon'] !!}
     </svg>
-    <div class="flex-1 {{ $config['text'] }} font-medium">
+    <div class="{{ $config['text'] }} flex-1 font-medium">
         {{ $slot }}
     </div>
 </div>

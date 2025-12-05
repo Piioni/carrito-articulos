@@ -14,7 +14,7 @@ Route::get('/', function () {
 Route::resource('articulos', ArticuloController::class);
 
 // Rutas de Sugerencias
-Route::resource('sugerencias', SugerenciaController::class)->middleware('auth');
+Route::resource('sugerencias', SugerenciaController::class);
 
 // Rutas de Autenticación
 Route::middleware('guest')->group(function () {

@@ -26,12 +26,7 @@
         @apply bg-vanilla font-sans text-charcoal antialiased;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h1, h2, h3, h4, h5, h6 {
         @apply font-semibold text-thistle tracking-tight;
     }
 
@@ -43,49 +38,53 @@
 @layer components {
     /* Cards */
     .card {
-        @apply rounded-2xl border border-accent/30 bg-white-smoke p-6 shadow-md transition-all duration-300;
-    }
-
-    .card-hover {
-        @apply card hover:-translate-y-1 hover:shadow-xl hover:border-accent/50;
+        @apply rounded-2xl border border-accent/30 bg-white-smoke p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-accent/50;
     }
 
     .card-elevated {
-        @apply card shadow-lg bg-gradient-to-br from-white-smoke to-cream/50;
+        @apply rounded-2xl border border-accent/30 bg-white-smoke p-6 shadow-lg transition-all duration-300 bg-gradient-to-br from-white-smoke to-cream/50;
     }
 
-    /* Buttons */
-    .btn {
+    /* Buttons - clase base compartida */
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger,
+    .btn-ghost {
         @apply inline-flex items-center justify-center gap-2 cursor-pointer rounded-xl px-5 py-2.5 font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
     }
 
     .btn-primary {
-        @apply btn bg-gradient-to-r from-fulvous to-fulvous/90 text-white shadow-md hover:from-fulvous/90 hover:to-fulvous hover:shadow-lg hover:-translate-y-0.5 focus:ring-fulvous;
+        @apply bg-gradient-to-r from-fulvous to-fulvous/90 text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 focus:ring-fulvous;
     }
 
     .btn-secondary {
-        @apply btn bg-accent/20 text-thistle border border-accent/40 hover:bg-accent/30 hover:border-accent focus:ring-accent;
+        @apply bg-accent/20 text-thistle border border-accent/40 hover:bg-accent/30 hover:border-accent focus:ring-accent;
     }
 
     .btn-danger {
-        @apply btn bg-gradient-to-r from-danger to-danger/90 text-white shadow-md hover:from-danger/90 hover:to-danger hover:shadow-lg hover:-translate-y-0.5 focus:ring-danger;
+        @apply bg-gradient-to-r from-danger to-danger/90 text-white shadow-md hover:shadow-lg hover:-translate-y-0.5 focus:ring-danger;
     }
 
     .btn-ghost {
-        @apply btn text-thistle hover:bg-accent/10 hover:text-fulvous;
+        @apply text-thistle hover:bg-accent/10 hover:text-fulvous;
     }
 
     .btn-link {
         @apply text-fulvous font-semibold hover:text-accent hover:underline underline-offset-4;
     }
 
-    /* Form Elements */
+    /* Form Elements - clase base compartida */
+    .form-input,
+    .form-input-error {
+        @apply w-full rounded-xl border-2 bg-white-smoke px-4 py-3 text-charcoal placeholder:text-thistle/50 transition-all duration-200 focus:ring-4 focus:outline-none;
+    }
+
     .form-input {
-        @apply w-full rounded-xl border-2 border-cream bg-white-smoke px-4 py-3 text-charcoal placeholder:text-thistle/50 transition-all duration-200 focus:border-accent focus:ring-4 focus:ring-accent/20 focus:outline-none;
+        @apply border-cream focus:border-accent focus:ring-accent/20;
     }
 
     .form-input-error {
-        @apply form-input border-danger focus:border-danger focus:ring-danger/20;
+        @apply border-danger focus:border-danger focus:ring-danger/20;
     }
 
     .form-label {
@@ -97,48 +96,38 @@
     }
 
     .form-group {
-        @apply mb-5;
+        @apply mb-1;
     }
 
-    /* Links */
+    /* Navigation */
+    .nav-link,
+    .nav-link-active {
+        @apply font-medium relative;
+    }
+
     .nav-link {
-        @apply text-thistle font-medium hover:text-fulvous relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-fulvous after:transition-all after:duration-300 hover:after:w-full;
+        @apply text-thistle hover:text-fulvous;
     }
 
     .nav-link-active {
-        @apply nav-link text-fulvous after:w-full;
+        @apply text-fulvous;
     }
 
-    /* Badges */
-    .badge {
-        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
-    }
-
+    /* Utilities */
     .badge-accent {
-        @apply badge bg-accent/20 text-thistle;
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-accent/20 text-thistle;
     }
 
-    /* Dividers */
     .divider {
-        @apply border-t border-accent/30 my-6;
+        @apply border-t border-accent/20 my-5;
     }
 
-    /* Page Title */
     .page-title {
         @apply text-3xl md:text-4xl font-bold text-thistle tracking-tight;
     }
 
     .page-subtitle {
         @apply text-base text-thistle/70 mt-1;
-    }
-
-    /* Avatar */
-    .avatar {
-        @apply w-10 h-10 rounded-full bg-gradient-to-br from-accent to-fulvous/70 flex items-center justify-center text-white font-bold shadow-sm;
-    }
-
-    .avatar-lg {
-        @apply w-16 h-16 text-xl;
     }
 
     /* Empty State */

@@ -1,16 +1,16 @@
 @props(['type' => 'button', 'variant' => 'primary', 'size' => 'md'])
 
 @php
-    $variantClass = match($variant) {
+    $variantClass = match ($variant) {
         'secondary' => 'btn-secondary',
         'danger' => 'btn-danger',
         'ghost' => 'btn-ghost',
         default => 'btn-primary',
     };
 
-    $sizeClass = match($size) {
-        'sm' => 'text-sm px-3 py-1.5',
-        'lg' => 'text-lg px-6 py-3',
+    $sizeClass = match ($size) {
+        'sm' => 'px-3 py-1.5 text-sm',
+        'lg' => 'px-6 py-3 text-lg',
         default => '',
     };
 @endphp

@@ -1,26 +1,27 @@
-@props(['variant' => 'default', 'hover' => false])
+@props(['variant' => 'default'])
 
 @php
-    $classes = match($variant) {
+    $classes = match ($variant) {
         'elevated' => 'card-elevated',
-        default => $hover ? 'card-hover' : 'card',
+        default => 'card',
     };
 @endphp
 
 <div {{ $attributes->merge(['class' => $classes]) }}>
-    @if(isset($title))
-        <div class="mb-4 pb-3 border-b border-accent/20">
+    @if (isset($title))
+        <div class="mb-4 border-b border-accent/20 pb-3">
             <h3 class="text-xl font-bold text-thistle">{{ $title }}</h3>
-            @if(isset($subtitle))
-                <p class="text-sm text-thistle/60 mt-0.5">{{ $subtitle }}</p>
+            @if (isset($subtitle))
+                <p class="mt-0.5 text-sm text-thistle/60">{{ $subtitle }}</p>
             @endif
         </div>
     @endif
+
     <div>
         {{ $slot }}
     </div>
-    @if(isset($footer))
-        <div class="mt-4 pt-3 border-t border-accent/20">
+    @if (isset($footer))
+        <div class="mt-4 border-t border-accent/20 pt-3">
             {{ $footer }}
         </div>
     @endif
