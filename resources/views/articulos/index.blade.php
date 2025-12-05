@@ -24,9 +24,9 @@
 
     @if ($articulos->isEmpty())
         <x-ui.empty-state
-            icon="📦"
-            title="No hay artículos disponibles"
-            description="Comienza agregando tu primer artículo a la colección."
+                icon="📦"
+                title="No hay artículos disponibles"
+                description="Comienza agregando tu primer artículo a la colección."
         >
             <x-slot:action>
                 <a href="{{ route('articulos.create') }}" class="btn-primary">Crear primer artículo</a>
@@ -40,14 +40,14 @@
                         @if ($articulo->imageUrl)
                             <div class="-mx-6 -mt-6 mb-4 overflow-hidden">
                                 <img
-                                    src="{{ $articulo->imageUrl }}"
-                                    alt="{{ $articulo->nombre }}"
-                                    class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        src="{{ $articulo->imageUrl }}"
+                                        alt="{{ $articulo->nombre }}"
+                                        class="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
                             </div>
                         @else
                             <div
-                                class="-mx-6 -mt-6 mb-4 flex h-48 items-center justify-center bg-gradient-to-br from-accent/20 to-cream"
+                                    class="-mx-6 -mt-6 mb-4 flex h-48 items-center justify-center bg-gradient-to-br from-accent/20 to-cream"
                             >
                                 <span class="text-5xl opacity-50">📦</span>
                             </div>

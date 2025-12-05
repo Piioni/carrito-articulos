@@ -10,10 +10,17 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 use Illuminate\Validation\Rules\Password;
 
+/**
+ * Controlador para la gestión de usuarios.
+ *
+ * Maneja el registro, autenticación, perfil y eliminación de usuarios.
+ */
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra el listado paginado de usuarios.
+     *
+     * @return View Vista con el listado de usuarios
      */
     public function index(): View
     {
@@ -23,7 +30,9 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource (registro).
+     * Muestra el formulario de registro de usuario.
+     *
+     * @return View Vista con el formulario de registro
      */
     public function create(): View
     {
@@ -31,7 +40,10 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage (registro).
+     * Registra un nuevo usuario y lo autentica automáticamente.
+     *
+     * @param  Request  $request  Datos del formulario de registro
+     * @return RedirectResponse Redirección al perfil del usuario
      */
     public function store(Request $request): RedirectResponse
     {
@@ -52,7 +64,9 @@ class UserController extends Controller
     }
 
     /**
-     * Show the login form.
+     * Muestra el formulario de inicio de sesión.
+     *
+     * @return View Vista con el formulario de login
      */
     public function showLoginForm(): View
     {
@@ -60,7 +74,10 @@ class UserController extends Controller
     }
 
     /**
-     * Handle login request.
+     * Procesa el inicio de sesión del usuario.
+     *
+     * @param  Request  $request  Credenciales del usuario
+     * @return RedirectResponse Redirección al perfil o error de validación
      */
     public function login(Request $request): RedirectResponse
     {
@@ -82,7 +99,10 @@ class UserController extends Controller
     }
 
     /**
-     * Handle logout request.
+     * Cierra la sesión del usuario autenticado.
+     *
+     * @param  Request  $request  Request actual
+     * @return RedirectResponse Redirección al listado de artículos
      */
     public function logout(Request $request): RedirectResponse
     {
@@ -96,7 +116,10 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource (perfil).
+     * Muestra el perfil de un usuario con sus sugerencias.
+     *
+     * @param  User  $user  Usuario a mostrar
+     * @return View Vista con el perfil del usuario
      */
     public function show(User $user): View
     {
@@ -106,7 +129,10 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra el formulario para editar el perfil del usuario.
+     *
+     * @param  User  $user  Usuario a editar
+     * @return View Vista con el formulario de edición
      */
     public function edit(User $user): View
     {
@@ -114,7 +140,11 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza los datos del perfil del usuario.
+     *
+     * @param  Request  $request  Datos del formulario
+     * @param  User  $user     Usuario a actualizar
+     * @return RedirectResponse Redirección al perfil con mensaje de éxito
      */
     public function update(Request $request, User $user): RedirectResponse
     {
@@ -137,7 +167,12 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina la cuenta del usuario.
+     *
+     * Si el usuario elimina su propia cuenta, cierra la sesión automáticamente.
+     *
+     * @param  User  $user  Usuario a eliminar
+     * @return RedirectResponse Redirección al listado de artículos
      */
     public function destroy(User $user): RedirectResponse
     {

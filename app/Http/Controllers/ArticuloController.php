@@ -7,10 +7,17 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
+/**
+ * Controlador para la gestión de artículos.
+ *
+ * Maneja las operaciones CRUD para los artículos del catálogo.
+ */
 class ArticuloController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra el listado paginado de artículos.
+     *
+     * @return View Vista con el listado de artículos
      */
     public function index(): View
     {
@@ -20,7 +27,9 @@ class ArticuloController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra el formulario para crear un nuevo artículo.
+     *
+     * @return View Vista con el formulario de creación
      */
     public function create(): View
     {
@@ -28,7 +37,10 @@ class ArticuloController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacena un nuevo artículo en la base de datos.
+     *
+     * @param  Request  $request  Datos del formulario
+     * @return RedirectResponse Redirección al listado con mensaje de éxito
      */
     public function store(Request $request): RedirectResponse
     {
@@ -45,7 +57,10 @@ class ArticuloController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Muestra los detalles de un artículo específico.
+     *
+     * @param  Articulo  $articulo  Artículo a mostrar
+     * @return View Vista con los detalles del artículo
      */
     public function show(Articulo $articulo): View
     {
@@ -53,7 +68,10 @@ class ArticuloController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra el formulario para editar un artículo existente.
+     *
+     * @param  Articulo  $articulo  Artículo a editar
+     * @return View Vista con el formulario de edición
      */
     public function edit(Articulo $articulo): View
     {
@@ -61,7 +79,11 @@ class ArticuloController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza un artículo existente en la base de datos.
+     *
+     * @param  Request  $request   Datos del formulario
+     * @param  Articulo  $articulo  Artículo a actualizar
+     * @return RedirectResponse Redirección al detalle con mensaje de éxito
      */
     public function update(Request $request, Articulo $articulo): RedirectResponse
     {
@@ -78,7 +100,10 @@ class ArticuloController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina un artículo de la base de datos.
+     *
+     * @param  Articulo  $articulo  Artículo a eliminar
+     * @return RedirectResponse Redirección al listado con mensaje de éxito
      */
     public function destroy(Articulo $articulo): RedirectResponse
     {

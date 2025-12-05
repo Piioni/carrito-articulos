@@ -10,8 +10,20 @@ use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
+/**
+ * Controlador para la gestión de sugerencias.
+ *
+ * Maneja las operaciones CRUD para las sugerencias de productos
+ * realizadas por los usuarios. Requiere autenticación para crear,
+ * editar y eliminar sugerencias.
+ */
 class SugerenciaController extends Controller implements HasMiddleware
 {
+    /**
+     * Define los middleware aplicables al controlador.
+     *
+     * @return array<Middleware> Lista de middleware
+     */
     public static function middleware(): array
     {
         return [
@@ -20,7 +32,9 @@ class SugerenciaController extends Controller implements HasMiddleware
     }
 
     /**
-     * Display a listing of the resource.
+     * Muestra el listado paginado de sugerencias.
+     *
+     * @return View Vista con el listado de sugerencias
      */
     public function index(): View
     {
@@ -30,7 +44,9 @@ class SugerenciaController extends Controller implements HasMiddleware
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra el formulario para crear una nueva sugerencia.
+     *
+     * @return View Vista con el formulario de creación
      */
     public function create(): View
     {
@@ -38,7 +54,10 @@ class SugerenciaController extends Controller implements HasMiddleware
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacena una nueva sugerencia en la base de datos.
+     *
+     * @param  Request  $request  Datos del formulario
+     * @return RedirectResponse Redirección al listado con mensaje de éxito
      */
     public function store(Request $request): RedirectResponse
     {
@@ -56,7 +75,10 @@ class SugerenciaController extends Controller implements HasMiddleware
     }
 
     /**
-     * Display the specified resource.
+     * Muestra los detalles de una sugerencia específica.
+     *
+     * @param  Sugerencia  $sugerencia  Sugerencia a mostrar
+     * @return View Vista con los detalles de la sugerencia
      */
     public function show(Sugerencia $sugerencia): View
     {
@@ -66,7 +88,10 @@ class SugerenciaController extends Controller implements HasMiddleware
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra el formulario para editar una sugerencia existente.
+     *
+     * @param  Sugerencia  $sugerencia  Sugerencia a editar
+     * @return View Vista con el formulario de edición
      */
     public function edit(Sugerencia $sugerencia): View
     {
@@ -74,7 +99,11 @@ class SugerenciaController extends Controller implements HasMiddleware
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza una sugerencia existente en la base de datos.
+     *
+     * @param  Request  $request     Datos del formulario
+     * @param  Sugerencia  $sugerencia  Sugerencia a actualizar
+     * @return RedirectResponse Redirección al detalle con mensaje de éxito
      */
     public function update(Request $request, Sugerencia $sugerencia): RedirectResponse
     {
@@ -90,7 +119,10 @@ class SugerenciaController extends Controller implements HasMiddleware
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina una sugerencia de la base de datos.
+     *
+     * @param  Sugerencia  $sugerencia  Sugerencia a eliminar
+     * @return RedirectResponse Redirección al listado con mensaje de éxito
      */
     public function destroy(Sugerencia $sugerencia): RedirectResponse
     {
