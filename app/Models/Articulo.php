@@ -9,4 +9,10 @@ class Articulo extends Model
 {
     /** @use HasFactory<\Database\Factories\ArticuloFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'nombre',
+        'descripción',
+        'imageUrl',
+    ];
 }
