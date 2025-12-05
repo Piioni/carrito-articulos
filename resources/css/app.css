@@ -17,11 +17,13 @@
     --color-accent: #d4a574;
     --color-footer-bg: #e8dcc8;
     --color-charcoal: #2d2d2d;
+    --color-success: #059669;
+    --color-danger: #dc2626;
 }
 
 @layer base {
     body {
-        @apply bg-vanilla font-sans text-charcoal;
+        @apply bg-vanilla font-sans text-charcoal antialiased;
     }
 
     h1,
@@ -30,20 +32,129 @@
     h4,
     h5,
     h6 {
-        @apply font-semibold text-thistle;
+        @apply font-semibold text-thistle tracking-tight;
+    }
+
+    a {
+        @apply transition-colors duration-200;
     }
 }
 
 @layer components {
+    /* Cards */
     .card {
-        @apply rounded-lg border-2 border-accent bg-cream p-6 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl;
+        @apply rounded-2xl border border-accent/30 bg-white-smoke p-6 shadow-md transition-all duration-300;
+    }
+
+    .card-hover {
+        @apply card hover:-translate-y-1 hover:shadow-xl hover:border-accent/50;
+    }
+
+    .card-elevated {
+        @apply card shadow-lg bg-gradient-to-br from-white-smoke to-cream/50;
+    }
+
+    /* Buttons */
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 cursor-pointer rounded-xl px-5 py-2.5 font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
     }
 
     .btn-primary {
-        @apply cursor-pointer rounded bg-fulvous px-4 py-2 font-semibold text-white transition-colors duration-300 hover:bg-accent focus:ring-2 focus:ring-accent focus:outline-none;
+        @apply btn bg-gradient-to-r from-fulvous to-fulvous/90 text-white shadow-md hover:from-fulvous/90 hover:to-fulvous hover:shadow-lg hover:-translate-y-0.5 focus:ring-fulvous;
     }
 
+    .btn-secondary {
+        @apply btn bg-accent/20 text-thistle border border-accent/40 hover:bg-accent/30 hover:border-accent focus:ring-accent;
+    }
+
+    .btn-danger {
+        @apply btn bg-gradient-to-r from-danger to-danger/90 text-white shadow-md hover:from-danger/90 hover:to-danger hover:shadow-lg hover:-translate-y-0.5 focus:ring-danger;
+    }
+
+    .btn-ghost {
+        @apply btn text-thistle hover:bg-accent/10 hover:text-fulvous;
+    }
+
+    .btn-link {
+        @apply text-fulvous font-semibold hover:text-accent hover:underline underline-offset-4;
+    }
+
+    /* Form Elements */
     .form-input {
-        @apply w-full rounded border-2 border-accent bg-white-smoke px-4 py-2 transition-all focus:ring-2 focus:ring-accent focus:outline-none;
+        @apply w-full rounded-xl border-2 border-cream bg-white-smoke px-4 py-3 text-charcoal placeholder:text-thistle/50 transition-all duration-200 focus:border-accent focus:ring-4 focus:ring-accent/20 focus:outline-none;
+    }
+
+    .form-input-error {
+        @apply form-input border-danger focus:border-danger focus:ring-danger/20;
+    }
+
+    .form-label {
+        @apply block text-sm font-semibold mb-2 text-charcoal;
+    }
+
+    .form-error {
+        @apply text-sm mt-1.5 text-danger flex items-center gap-1;
+    }
+
+    .form-group {
+        @apply mb-5;
+    }
+
+    /* Links */
+    .nav-link {
+        @apply text-thistle font-medium hover:text-fulvous relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-fulvous after:transition-all after:duration-300 hover:after:w-full;
+    }
+
+    .nav-link-active {
+        @apply nav-link text-fulvous after:w-full;
+    }
+
+    /* Badges */
+    .badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    }
+
+    .badge-accent {
+        @apply badge bg-accent/20 text-thistle;
+    }
+
+    /* Dividers */
+    .divider {
+        @apply border-t border-accent/30 my-6;
+    }
+
+    /* Page Title */
+    .page-title {
+        @apply text-3xl md:text-4xl font-bold text-thistle tracking-tight;
+    }
+
+    .page-subtitle {
+        @apply text-base text-thistle/70 mt-1;
+    }
+
+    /* Avatar */
+    .avatar {
+        @apply w-10 h-10 rounded-full bg-gradient-to-br from-accent to-fulvous/70 flex items-center justify-center text-white font-bold shadow-sm;
+    }
+
+    .avatar-lg {
+        @apply w-16 h-16 text-xl;
+    }
+
+    /* Empty State */
+    .empty-state {
+        @apply text-center py-12 px-4;
+    }
+
+    .empty-state-icon {
+        @apply text-5xl mb-3 opacity-50;
+    }
+
+    .empty-state-title {
+        @apply text-lg font-semibold text-thistle mb-1;
+    }
+
+    .empty-state-text {
+        @apply text-thistle/70 text-sm mb-5;
     }
 }
