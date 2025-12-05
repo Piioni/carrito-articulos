@@ -1,12 +1,8 @@
-@props([
-    'action',
-    'method' => 'POST',
-    'buttonText' => 'Guardar',
-])
+@props(['action', 'method' => 'POST', 'buttonText' => 'Guardar'])
 
 <form action="{{ $action }}" method="POST" {{ $attributes }}>
     @csrf
-    @if ($method !== 'POST')
+    @if($method !== 'POST')
         @method($method)
     @endif
 
