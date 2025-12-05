@@ -22,7 +22,7 @@ class ArticuloFactory extends Factory
         return [
             'nombre' => $this->faker->sentence(3),
             'descripción' => $this->faker->paragraph(),
-            'imageUrl' => $this->faker->unique()->imageUrl(800, 600),
+            'imageUrl' => 'https://picsum.photos/seed/' . $this->faker->unique()->word() . '/800/600',
         ];
     }
 }
